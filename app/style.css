@@ -1,0 +1,225 @@
+/* China by the Numbers — a quiet, paper-like design: ink on warm white,
+   one vermilion accent, system type throughout. No webfonts, no images. */
+
+:root {
+  --ink: #1c2420;
+  --muted: #6b655c;
+  --line: #e4e0d8;
+  --paper: #faf8f4;
+  --card: #ffffff;
+  --accent: #b3402a;
+  --accent-soft: #f6e8e2;
+  --teal: #1f4d4a;
+  --good: #1f6b4a;
+  --bad: #a03a28;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.wrap { max-width: 1020px; margin: 0 auto; padding: 0 20px; }
+
+a { color: var(--accent); }
+a:hover { text-decoration-thickness: 2px; }
+
+/* Header */
+.site-head {
+  background: var(--ink);
+  color: #f5f1ea;
+}
+.head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 28px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.brand {
+  color: #f5f1ea;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand span { color: #e8a08d; font-weight: 600; }
+#nav { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+#nav a {
+  color: #cfc9bd;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 2px 0;
+  border-bottom: 2px solid transparent;
+}
+#nav a:hover { color: #fff; }
+#nav a.on { color: #fff; border-bottom-color: var(--accent); }
+
+/* Type */
+h1 { font-size: 34px; line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.01em; }
+h2 { font-size: 23px; line-height: 1.3; margin: 40px 0 12px; }
+h3 { font-size: 16px; margin: 0 0 4px; }
+.lede { font-size: 19px; line-height: 1.55; color: #3d443f; max-width: 62ch; }
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 0 10px;
+}
+.unit { color: var(--muted); font-weight: 400; font-size: 0.85em; }
+.blurb { color: #3d443f; max-width: 70ch; }
+.source-line { color: var(--muted); font-size: 14px; }
+.crumb { margin: 0 0 8px; font-size: 15px; }
+
+/* Hero */
+.hero { padding: 22px 0 4px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+.hero h1 { font-size: 40px; margin-bottom: 8px; }
+.hero-links { margin: 14px 0 18px; display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 6px;
+}
+.btn:hover { background: #9c3522; }
+.btn.ghost { background: transparent; color: var(--accent); box-shadow: inset 0 0 0 1.5px var(--accent); }
+.btn.ghost:hover { background: var(--accent-soft); }
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px 14px;
+}
+.card-link { display: block; color: inherit; text-decoration: none; height: 100%; }
+.card-link:hover h3 { color: var(--accent); }
+.card .big { font-size: 30px; font-weight: 800; letter-spacing: -0.01em; margin: 2px 0 6px; }
+.card .big .unit { font-size: 15px; }
+.card-meta { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
+.change { font-weight: 600; }
+.change.up { color: var(--good); }
+.change.down { color: var(--bad); }
+.change.flat { color: var(--muted); }
+
+/* Chart block */
+.chart-block {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px 22px 14px;
+  margin: 24px 0;
+}
+.chart-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.chart-head h2 { margin: 0; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.seg button {
+  border: 0;
+  background: #fff;
+  color: var(--muted);
+  font: 600 14px/1 system-ui, sans-serif;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button.on { background: var(--ink); color: #fff; }
+.chart { margin-top: 8px; }
+.chart svg { display: block; }
+
+/* Takeaways */
+.takeaways { padding-left: 20px; }
+.takeaways li { margin-bottom: 8px; max-width: 70ch; }
+
+/* Tables */
+.table-wrap { overflow-x: auto; margin: 12px 0; }
+table.years {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 640px;
+  background: var(--card);
+  font-size: 15px;
+}
+table.years th, table.years td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+table.years thead th {
+  background: #f2efe9;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+table.years .num { text-align: right; font-variant-numeric: tabular-nums; }
+table.years.narrow { min-width: 420px; max-width: 560px; }
+.sort {
+  border: 0; background: none; padding: 0;
+  font: inherit; color: inherit; cursor: pointer; text-transform: inherit; letter-spacing: inherit;
+}
+.sort:hover { color: var(--accent); }
+
+/* Search */
+.search-label { font-weight: 600; display: block; margin-bottom: 6px; }
+input[type="search"] {
+  width: 100%;
+  max-width: 520px;
+  font: 16px/1.4 system-ui, sans-serif;
+  padding: 10px 14px;
+  border: 1px solid #cfc9bd;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+}
+input[type="search"]:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.result-count { color: var(--muted); font-size: 14px; margin: 8px 0 0; }
+
+/* Footer */
+.site-foot {
+  margin-top: 56px;
+  border-top: 1px solid var(--line);
+  padding: 24px 0 40px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-foot p { margin: 4px 0; }
+
+main { padding-top: 8px; }
+.page-head { padding-top: 28px; }
+
+/* Phone */
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  h1 { font-size: 28px; }
+  .hero h1 { font-size: 34px; }
+  .lede { font-size: 17px; }
+  .head-row { gap: 4px 16px; }
+  #nav a { font-size: 14px; }
+  .chart-block { padding: 14px 12px 10px; }
+  .card .big { font-size: 26px; }
+  table.years { font-size: 14px; }
+}
